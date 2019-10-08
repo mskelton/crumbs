@@ -1,2 +1,3 @@
-# sage
-Shared component and utility library
+# @sage
+
+Shared component and utility library.
