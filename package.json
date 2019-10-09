@@ -7,8 +7,7 @@
   "workspaces": [
     "packages/*"
   ],
-  "bit": {
-    "packageManager": "yarn",
-    "useWorkspaces": true
+  "devDependencies": {
+    "lerna": "^3.16.5"
   }
 }
