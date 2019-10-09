@@ -1,0 +1,11 @@
+{
+  "name": "sage",
+  "description": "Shared components and utility library.",
+  "repository": "git@github.com:markypython/sage.git",
+  "author": "Mark Skelton <mdskelton99@gmail.com>",
+  "license": "MIT",
+  "bit": {
+    "packageManager": "yarn",
+    "useWorkspaces": true
+  }
+}
