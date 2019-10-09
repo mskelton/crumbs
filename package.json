@@ -4,6 +4,9 @@
   "repository": "git@github.com:markypython/sage.git",
   "author": "Mark Skelton <mdskelton99@gmail.com>",
   "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
   "bit": {
     "packageManager": "yarn",
     "useWorkspaces": true
