@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "sage",
   "description": "Shared components and utility library.",
   "repository": "git@github.com:markypython/sage.git",
@@ -7,7 +8,25 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "compile:js": "babel --root-mode upward src -out-dir lib",
+    "build": "lerna exec --parallel -- yarn compile:js",
+    "decs": "lerna exec --parallel -- tsc"
+  },
   "devDependencies": {
-    "lerna": "^3.16.5"
+    "@babel/core": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-jest": "^4.0.3",
+    "gulp-rename": "^1.4.0",
+    "gulp-typescript": "^5.0.1",
+    "jest-cli": "^24.9.0",
+    "lerna": "^3.16.5",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.0"
   }
 }
