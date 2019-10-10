@@ -3,7 +3,10 @@
     "composite": true,
     "declaration": true,
     "declarationMap": true,
+    "jsx": "react",
+    "moduleResolution": "node",
     "strict": true,
+    "target": "esnext",
     "emitDeclarationOnly": true
   }
 }

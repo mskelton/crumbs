@@ -9,18 +9,15 @@
     "packages/*"
   ],
   "scripts": {
-    "compile:js": "babel --root-mode upward src -out-dir lib",
-    "build": "lerna exec --parallel -- yarn compile:js",
-    "decs": "lerna exec --parallel -- tsc"
+    "build": "lerna exec --parallel --loglevel success 'babel src --out-dir lib --source-maps --extensions .ts,.tsx --config-file ../../.babelrc'"
   },
   "devDependencies": {
+    "@babel/cli": "^7.6.3",
     "@babel/core": "^7.6.3",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "@babel/preset-typescript": "^7.6.0",
-    "babel-loader": "^8.0.6",
     "lerna": "^3.16.5",
-    "typescript": "^3.6.4",
-    "webpack": "^4.41.0"
+    "typescript": "^3.6.4"
   }
 }
