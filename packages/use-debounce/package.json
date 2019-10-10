@@ -1,8 +1,16 @@
 {
-  "name": "sage",
+  "name": "@sage/use-debounce",
   "version": "0.0.1",
   "description": "React hook to debounce updating a value in state.",
   "repository": "git@github.com:markypython/sage.git",
   "author": "Mark Skelton <mdskelton99@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "peerDependencies": {
+    "react": "^16.10.2"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.5"
+  }
 }
