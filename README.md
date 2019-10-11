@@ -1,6 +1,6 @@
 # Sage
 
-[![Build Status](build-badge)](repo)
+[![Build Status][build-badge]][repo]
 
 Shared component and utility library.
 
