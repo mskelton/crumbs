@@ -3,11 +3,7 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: [
-    'standard',
-    'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
-  ],
+  extends: ['standard', 'plugin:@typescript-eslint/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,

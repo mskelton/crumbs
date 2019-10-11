@@ -1,5 +1,15 @@
 {
   "extends": [
     "./packages/eslint-config"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "packages/*/test/**/*"
+      ],
+      "env": {
+        "jest": true
+      }
+    }
   ]
 }
