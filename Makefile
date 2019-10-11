@@ -67,7 +67,9 @@ endif
 $1: $(call pkg-libs-js,$1) $(call pkg-tsbuildinfo,$1)
 
 test-$1:
+ifneq (,$(wildcard $(call pkg-testdir,$1)))
 	$(TEST_RUNNER) $(TEST_RUNNER_OPTS) $(call pkg-testdir,$1)
+endif
 
 clean-$1:
 	rm -rf $(call pkg-libdir,$1) $(call pkg-dir,$1)/node_modules
