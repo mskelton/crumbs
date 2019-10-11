@@ -73,6 +73,7 @@ endif
 
 clean-$1:
 	rm -rf $(call pkg-libdir,$1) $(call pkg-dir,$1)/node_modules
+	rm -f $(call pkg-tsbuildinfo,$1)
 
 # Phony targets used for the global
 clean-packages: clean-$1
