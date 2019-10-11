@@ -1,4 +1,4 @@
-name: Publish packages to npm
+name: Lint and test packages
 on:
   pull_request:
     branches:
