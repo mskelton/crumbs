@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   extends: ['standard', 'prettier', 'plugin:prettier/recommended'],
   plugins: ['prettier'],
   parserOptions: {

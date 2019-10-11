@@ -5,6 +5,7 @@
   "repository": "git@github.com:markypython/sage.git",
   "author": "Mark Skelton <mdskelton99@gmail.com>",
   "license": "MIT",
+  "main": "lib/index.js",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.3.3",
     "@typescript-eslint/parser": "^2.3.3",
