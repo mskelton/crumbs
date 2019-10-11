@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - master
+    tags:
+      - '*'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,6 +16,12 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 10
-      - run: make
-      - run: make lint
-      - run: make test
+      - name: Install & build
+        run: make
+      - name: Lint
+        run: make lint
+      - name: Test
+        run: make test
+      - name: Publish to npm
+        run: make publish
+        if: github.event_name == 'release'
