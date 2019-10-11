@@ -78,7 +78,7 @@ test-packages: test-$1
 
 packages: $1
 
-.PHONY: $1 test-$1
+.PHONY: $1 test-$1 clean-$1 clean-packages test-packages packages
 endef
 
 ############################################
