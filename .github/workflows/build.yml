@@ -1,4 +1,4 @@
-name: Lint and test packages
+name: Build
 on:
   pull_request:
     branches:

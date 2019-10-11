@@ -1,5 +1,7 @@
 # Sage
 
+[![Build Status](build-badge)](repo)
+
 Shared component and utility library.
 
 ## Setup
@@ -76,3 +78,6 @@ make lint-<package>
 ## Thanks
 
 - [Mark Feltner](https://github.com/feltnerm) for the project which inspired this ([monorepo-es6-dev](https://github.com/feltnerm/monorepo-es6-dev))
+
+[build-badge]: https://github.com/markypython/sage/workflows/Build/badge.svg
+[repo]: https://github.com/markypython/sage/actions
