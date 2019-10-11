@@ -115,6 +115,7 @@ clean: clean-packages
 	rm -rf node_modules
 
 publish:
+	@echo "publishing"
 
 # Install and build all packages
 all: node_modules packages
