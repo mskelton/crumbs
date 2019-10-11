@@ -99,6 +99,9 @@ $(foreach p,$(PKGS),$(call add-pkg,$p))
 ## GLOBAL RULES ############################
 ############################################
 
+# Prevent make from trying to use the Makefile as a target
+Makefile: ;
+
 # Install all dependencies
 node_modules: package.json
 	yarn
@@ -107,13 +110,16 @@ lint:
 	$(LINTER) $(LINTER_OPTS) .
 
 test: test-packages
+
 clean: clean-packages
 	rm -rf node_modules
+
+publish:
 
 # Install and build all packages
 all: node_modules packages
 
 # Will be filled in by pkg-rules
-.PHONY: all lint test clean
+.PHONY: all lint test clean publish
 
 .DEFAULT_GOAL := all
