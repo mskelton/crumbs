@@ -1,9 +1,9 @@
-# Directories
 node_modules/
+# Outputs
 lib/
-
-# Files
+# TypeScript incremental build cache
 *.tsbuildinfo
-
 # Yarn
 yarn-error.log
+# Editors
+.vscode/
