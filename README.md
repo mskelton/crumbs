@@ -2,7 +2,7 @@
 
 [![Build Status][build-badge]][repo]
 
-Shared component and utility library.
+> Shared component and utility library.
 
 ## Setup
 
