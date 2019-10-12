@@ -11,6 +11,7 @@ PKGS_ROOT := packages
 PKGS_SRCDIR := src
 PKGS_LIBDIR := lib
 PKGS_TESTDIR := test
+SCRIPTS_DIR := scripts
 
 ############################################
 ## HELPER FUNCTIONS ########################
@@ -97,7 +98,7 @@ PKGS := $(notdir $(wildcard $(PKGS_ROOT)/*))
 $(foreach p,$(PKGS),$(call add-pkg,$p))
 
 ############################################
-## GLOBAL RULES ############################
+## GLOBAL TARGETS ##########################
 ############################################
 
 # Prevent make from trying to use the Makefile as a target
@@ -106,6 +107,13 @@ Makefile: ;
 # Install all dependencies
 node_modules: package.json
 	yarn
+
+############################################
+## GLOBAL COMMANDS #########################
+############################################
+
+new:
+	$(SCRIPTS_DIR)/new.sh $(name)
 
 lint:
 	$(LINTER) $(LINTER_OPTS) .
@@ -125,6 +133,6 @@ publish:
 all: node_modules packages
 
 # Will be filled in by pkg-rules
-.PHONY: all lint test clean publish
+.PHONY: all new lint lint-fix test clean publish
 
 .DEFAULT_GOAL := all
