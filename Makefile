@@ -1,3 +1,9 @@
+# Disable built-in rules and variables
+MAKEFLAGS += --no-builtin-rules
+MAKEFLAGS += --no-builtin-variables
+.SUFFIXES: ;
+
+# Script locations
 NPM_BIN = $(shell yarn bin)
 TRANSPILER = $(NPM_BIN)/babel
 TRANSPILER_OPTS = --source-maps
