@@ -1,5 +1,5 @@
 {
-  "name": "@sage/template",
+  "name": "@sage/{{template}}",
   "version": "0.0.1",
   "description": "",
   "repository": "git@github.com:markypython/sage.git",
