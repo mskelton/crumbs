@@ -71,8 +71,8 @@ The following file extensions will be linted:
 # Lint the entire project.
 make lint
 
-# Lint a specific package.
-make lint-<package>
+# Lint the entire project and fix auto-fixable errors.
+make lint-fix
 ```
 
 ## Thanks
