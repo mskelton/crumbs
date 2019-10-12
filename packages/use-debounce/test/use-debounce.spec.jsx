@@ -18,7 +18,7 @@ describe('useDebounce', () => {
   })
 
   it('waits for the timeout before re-rendering', () => {
-    const { rerender, getByTestId } = render(<Component text="Hello" />)
+    const { getByTestId, rerender } = render(<Component text="Hello" />)
 
     // Check initial value
     expect(getNodeText(getByTestId('value'))).toBe('Hello')
@@ -67,7 +67,7 @@ describe('useDebounce', () => {
   })
 
   it('should apply the latest value', () => {
-    const { rerender, getByTestId } = render(<Component text="Hello" />)
+    const { getByTestId, rerender } = render(<Component text="Hello" />)
 
     // Check initial value
     expect(getNodeText(getByTestId('value'))).toBe('Hello')
