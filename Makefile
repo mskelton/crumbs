@@ -109,6 +109,9 @@ node_modules: package.json
 lint:
 	$(LINTER) $(LINTER_OPTS) .
 
+lint-fix:
+	$(LINTER) $(LINTER_OPTS) --fix .
+
 test: test-packages
 
 clean: clean-packages
