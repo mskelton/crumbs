@@ -14,5 +14,5 @@ mv packages/$1/test/template.spec.jsx packages/$1/test/$1.spec.jsx
 # Replace {{template}} with the package name
 files=(package.json README.md)
 for file in "${files[@]}"; do
-  sed -i '' 's/{{template}}/$file/g' packages/$1/package.json
+  sed -i '' "s/{{template}}/$1/g" packages/$1/$file
 done
