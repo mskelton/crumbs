@@ -10,10 +10,10 @@ This package contains the ESLint configuration for the Sage project. It uses the
 
 ```sh
 # Yarn
-yarn add @sage/eslint-config
+yarn add --dev @sage/eslint-config
 
 # npm
-npm install @sage/eslint-config
+npm install --save-dev @sage/eslint-config
 ```
 
 ## Usage
