@@ -4,3 +4,6 @@ lib/
 
 # Files
 *.tsbuildinfo
+
+# Yarn
+yarn-error.log
