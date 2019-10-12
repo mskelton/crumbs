@@ -25,6 +25,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react-hooks/rules-of-hooks': 'error',
     'react/jsx-sort-props': 'error',
+    'react/prop-types': 'off',
     'sort-keys': 'error',
   },
   settings: {
