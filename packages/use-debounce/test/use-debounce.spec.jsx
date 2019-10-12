@@ -6,7 +6,7 @@ jest.useFakeTimers()
 
 describe('useDebounce', () => {
   it('put initialized value in first render', () => {
-    function Component () {
+    function Component() {
       const value = useDebounce('Hello world', 1000)
       return <span data-testid="value">{value}</span>
     }

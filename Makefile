@@ -2,7 +2,7 @@ NPM_BIN = $(shell yarn bin)
 TRANSPILER = $(NPM_BIN)/babel
 TRANSPILER_OPTS = --source-maps
 LINTER = $(NPM_BIN)/eslint
-LINTER_OPTS =
+LINTER_OPTS = --ext .ts,.tsx,.js,.jsx
 TEST_RUNNER = $(NPM_BIN)/jest
 TEST_RUNNER_OPTS =
 
