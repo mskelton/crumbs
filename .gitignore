@@ -1,9 +1,11 @@
 node_modules/
-# Outputs
 lib/
+.vscode/
+
+yarn-error.log
+
 # TypeScript incremental build cache
 *.tsbuildinfo
-# Yarn
-yarn-error.log
-# Editors
-.vscode/
+
+# Ignore project level Makefiles as they are auto generated
+packages/*/Makefile
