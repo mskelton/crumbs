@@ -30,6 +30,18 @@ make packages
 make <package>
 ```
 
+### Testing
+
+Tests should be placed in a directory named `test` in the root of the package they apply to. Packages without tests will be ignored.
+
+```sh
+# Run tests for all packages.
+make test
+
+# Delete outputs and node_modules for a specific package.
+make test-<package>
+```
+
 ### Cleaning
 
 ```sh
@@ -42,18 +54,6 @@ make clean-packages
 
 # Deletes outputs and node_modules for a specific package.
 make clean-<package>
-```
-
-### Testing
-
-Tests should be placed in a directory named `test` in the root of the package they apply to. Packages without tests will be ignored.
-
-```sh
-# Run tests for all packages.
-make test
-
-# Delete outputs and node_modules for a specific package.
-make test-<package>
 ```
 
 ### Linting
@@ -73,6 +73,14 @@ make lint
 
 # Lint the entire project and fix auto-fixable errors.
 make lint-fix
+```
+
+### Creating a new package
+
+The following script will create a new package in the `packages` directory using the code from the `template` directory. The package name will be used for the test file as well as the README and the package name in `package.json`.
+
+```sh
+make new name=<package>
 ```
 
 ## Thanks
