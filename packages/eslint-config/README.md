@@ -26,6 +26,14 @@ In your `.eslintrc` file, add `@sage` to the list of extended configurations.
 }
 ```
 
+In your `package.json` file, add the following to use the Sage Prettier config.
+
+```json
+{
+  "prettier": "@sage/eslint-config/prettier"
+}
+```
+
 [ts-eslint-parser]: https://github.com/typescript-eslint/typescript-eslint
 [prettier]: https://prettier.io
 [standard]: https://standardjs.com
