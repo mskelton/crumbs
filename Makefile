@@ -34,8 +34,13 @@ lint-fix:
 test:
 	@$(TEST_RUNNER)
 
+coverage:
+	@$(TEST_RUNNER) --coverage
+
 clean: clean-packages
-	rm -rf node_modules
+	@rm -rf node_modules
+	@rm -rf coverage
+	@echo "Cleaned project root."
 
 publish:
 	@echo "publishing"
@@ -44,6 +49,6 @@ publish:
 all: node_modules packages
 
 # Will be filled in by pkg-rules
-.PHONY: all new lint lint-fix test clean publish
+.PHONY: all new lint lint-fix test coverage clean publish
 
 .DEFAULT_GOAL := all

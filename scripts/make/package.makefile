@@ -38,13 +38,15 @@ ifneq (,$(wildcard tsconfig.json))
 endif
 
 test:
-ifneq (,$(wildcard $(PKG_TESTDIR)))
-	@$(TEST_RUNNER) $(PKG_TESTDIR)
-endif
+	@$(TEST_RUNNER)
+
+coverage:
+	@$(TEST_RUNNER) --coverage
 
 clean:
-	@rm -rf $(PKG_LIBDIR)
+	@rm -rf coverage
 	@rm -rf node_modules
+	@rm -rf $(PKG_LIBDIR)
 	@rm -f $(PKG_TSBUILDINFO)
 	@rm -f yarn-error.log
 	@echo "Cleaned package $(notdir $(CURDIR))."
@@ -52,5 +54,5 @@ clean:
 # Package rule to build all outputs
 all: $(PKG_LIBS_JS) $(PKG_TSBUILDINFO)
 
-.PHONY: all test clean
+.PHONY: all test coverage clean
 .DEFAULT_GOAL := all
