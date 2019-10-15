@@ -6,3 +6,6 @@ yarn-error.log
 
 # TypeScript incremental build cache
 *.tsbuildinfo
+
+# Jest coverage directory
+coverage/
