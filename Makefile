@@ -1,25 +1,14 @@
-# Script locations
-PACKAGE_MANAGER := yarn
-LINTER = $(PACKAGE_MANAGER) eslint
-LINTER_OPTS = --ext .ts,.tsx,.js,.jsx
+include scripts/make/config.makefile
 
 # Directories
-SCRIPTS_DIR := scripts
 PACKAGES = $(wildcard packages/*)
-MAKEFILES = $(foreach p,$(PACKAGES),$(addsuffix /Makefile,$p))
 
 ############################################
 ## PACKAGE_TARGETS #########################
 ############################################
 
-$(MAKEFILES):
-	cp scripts/make/sample.makefile $@
-
-clean-packages: $(MAKEFILES)
-	@$(foreach f,$^,$(MAKE) -C $(dir $f) clean;)
-
-test-packages: $(MAKEFILES)
-	@$(foreach f,$^,$(MAKE) -C $(dir $f) test;)
+clean-packages:
+	@$(foreach p,$(PACKAGES),$(MAKE) -C $p clean;)
 
 ############################################
 ## GLOBAL TARGETS ##########################
@@ -42,7 +31,8 @@ lint:
 lint-fix:
 	@$(LINTER) $(LINTER_OPTS) --fix .
 
-test: test-packages
+test:
+	@$(TEST_RUNNER)
 
 clean: clean-packages
 	rm -rf node_modules

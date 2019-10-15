@@ -1,19 +1,5 @@
 include ../../scripts/make/perf.makefile
-
-# Script locations
-PACKAGE_MANAGER = yarn
-TRANSPILER = $(PACKAGE_MANAGER) babel
-TRANSPILER_OPTS = --source-maps --config-file ../../babel.config.js
-LINTER = $(PACKAGE_MANAGER) eslint
-LINTER_OPTS = --ext .ts,.tsx,.js,.jsx
-TEST_RUNNER = $(PACKAGE_MANAGER) jest
-TEST_RUNNER_OPTS =
-
-# Directories
-PKG_SRCDIR := src
-PKG_LIBDIR := lib
-PKG_TESTDIR := test
-PKG_TSBUILDINFO := tsconfig.tsbuildinfo
+include ../../scripts/make/config.makefile
 
 ############################################
 ## HELPER FUNCTIONS ########################
@@ -53,12 +39,15 @@ endif
 
 test:
 ifneq (,$(wildcard $(PKG_TESTDIR)))
-	@$(TEST_RUNNER) $(TEST_RUNNER_OPTS) $(PKG_TESTDIR)
+	@$(TEST_RUNNER) $(PKG_TESTDIR)
 endif
 
 clean:
-	rm -rf $(PKG_LIBDIR) node_modules
-	rm -f $(PKG_TSBUILDINFO) yarn-error.log
+	@rm -rf $(PKG_LIBDIR)
+	@rm -rf node_modules
+	@rm -f $(PKG_TSBUILDINFO)
+	@rm -f yarn-error.log
+	@echo "Cleaned package $(notdir $(CURDIR))."
 
 # Package rule to build all outputs
 all: $(PKG_LIBS_JS) $(PKG_TSBUILDINFO)
