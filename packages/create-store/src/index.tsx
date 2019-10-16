@@ -45,15 +45,28 @@ export function createStore<State, Action>(
 
   Provider.displayName = providerDisplayName
 
+  function verifyProviderExists(dispatch: Dispatch<Action>) {
+    if (!dispatch) {
+      throw new Error(
+        `Store consumer initalized outside of ${providerDisplayName}. ` +
+          `Please wrap your consumer in ${providerDisplayName}.`
+      )
+    }
+  }
+
   function useHook(): [State, Dispatch<Action>] {
     const state = useContext(StateContext)
     const dispatch = useContext(DispatchContext)
+    verifyProviderExists(dispatch)
 
     return [state, dispatch]
   }
 
   useHook.useDispatchOnly = function useDispatchOnly() {
-    return useContext(DispatchContext)
+    const dispatch = useContext(DispatchContext)
+    verifyProviderExists(dispatch)
+
+    return dispatch
   }
 
   return { Provider, useHook }
