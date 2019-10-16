@@ -7,6 +7,10 @@
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "clean": "../../scripts/package/clean.sh"
+  },
   "peerDependencies": {
     "react": "^16.10.2"
   },

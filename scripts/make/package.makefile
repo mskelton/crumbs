@@ -1,5 +1,22 @@
-include ../../scripts/make/perf.makefile
-include ../../scripts/make/config.makefile
+# Disable built-in rules and variables
+MAKEFLAGS += --no-builtin-rules
+MAKEFLAGS += --no-builtin-variables
+.SUFFIXES: ;
+
+# Script locations
+PACKAGE_MANAGER = yarn
+TRANSPILER = $(PACKAGE_MANAGER) babel
+TRANSPILER_OPTS = --source-maps --config-file ../../babel.config.js
+LINTER = $(PACKAGE_MANAGER) eslint
+LINTER_OPTS = --ext .ts,.tsx,.js,.jsx
+TEST_RUNNER = $(PACKAGE_MANAGER) jest
+
+# Directories
+PKG_SRCDIR := src
+PKG_LIBDIR := lib
+PKG_TESTDIR := test
+SCRIPTS_DIR := scripts
+PKG_TSBUILDINFO := tsconfig.tsbuildinfo
 
 ############################################
 ## HELPER FUNCTIONS ########################
@@ -36,20 +53,6 @@ $(PKG_TSBUILDINFO): $(wildcard $(PKG_SRCDIR)/*.ts*)
 ifneq (,$(wildcard tsconfig.json))
 	$(PACKAGE_MANAGER) tsc
 endif
-
-test:
-	@$(TEST_RUNNER)
-
-coverage:
-	@$(TEST_RUNNER) --coverage
-
-clean:
-	@rm -rf coverage
-	@rm -rf node_modules
-	@rm -rf $(PKG_LIBDIR)
-	@rm -f $(PKG_TSBUILDINFO)
-	@rm -f yarn-error.log
-	@echo "Cleaned package $(notdir $(CURDIR))."
 
 # Package rule to build all outputs
 all: $(PKG_LIBS_JS) $(PKG_TSBUILDINFO)
