@@ -1,4 +1,11 @@
 {
   "files": [],
-  "references": [{ "path": "packages/use-debounce" }]
+  "references": [
+    {
+      "path": "packages/create-store"
+    },
+    {
+      "path": "packages/use-debounce"
+    },
+  ]
 }
