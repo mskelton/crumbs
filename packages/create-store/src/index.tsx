@@ -21,7 +21,7 @@ export class InvalidReducerAction extends Error {
 
 export function createStore<State, Action>(
   initialState: State,
-  displayName: string,
+  providerDisplayName: string,
   reducer: (state: State, action: Action) => State
 ) {
   const StateContext = createContext(initialState)
@@ -43,7 +43,7 @@ export function createStore<State, Action>(
     )
   }
 
-  Provider.displayName = displayName
+  Provider.displayName = providerDisplayName
 
   function useHook(): [State, Dispatch<Action>] {
     const state = useContext(StateContext)
