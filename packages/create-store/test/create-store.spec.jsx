@@ -4,6 +4,25 @@ import { createStore, InvalidReducerAction } from '../src'
 
 jest.useFakeTimers()
 
+// Cleanup console.error mocks
+const { error: originalError } = console
+
+afterEach(() => {
+  console.error = originalError
+})
+
+function createTestStore() {
+  return createStore(
+    'Initial value',
+    'TestProvider',
+    (_, action) => action.value
+  )
+}
+
+const PROVIDER_ERROR =
+  'Store consumer initalized outside of TestProvider. ' +
+  'Please wrap your consumer in TestProvider.'
+
 describe('createStore', () => {
   const types = {
     decrement: 'DECREMENT',
@@ -88,20 +107,57 @@ describe('createStore', () => {
 })
 
 describe('useHook', () => {
-  it('re-renders the component when state changes', () => {})
+  it('re-renders the component when state changes', () => {
+    const { Provider, useHook } = createTestStore()
+
+    function Component() {
+      const [state, dispatch] = useHook()
+
+      useEffect(() => {
+        const id = setTimeout(() => dispatch({ value: 'New value' }), 1000)
+        return () => clearTimeout(id)
+      }, [dispatch])
+
+      return <span data-testid="state">{state}</span>
+    }
+
+    const { getByTestId } = render(
+      <Provider>
+        <Component />
+      </Provider>
+    )
+
+    // Test initial value
+    expect(getNodeText(getByTestId('state'))).toBe('Initial value')
+
+    act(() => {
+      jest.runAllTimers()
+    })
+
+    // The state value changes to the new value
+    expect(getNodeText(getByTestId('state'))).toBe('New value')
+  })
+
+  it('throws an error when used outside of the Provider', () => {
+    console.error = jest.fn()
+    const { useHook } = createTestStore()
+
+    function Component() {
+      useHook()
+      return <span />
+    }
+
+    expect(() => render(<Component />)).toThrow(PROVIDER_ERROR)
+  })
 })
 
 describe('useDispatchOnly', () => {
   it("doesn't re-render when state changes", () => {
-    const { Provider, useHook } = createStore(
-      'Initial value',
-      'TestProvider',
-      (_, action) => action.value
-    )
+    const { Provider, useHook } = createTestStore()
 
     function StateComponent() {
       const [state] = useHook()
-      return <span data-testid="value">{state}</span>
+      return <span data-testid="state">{state}</span>
     }
 
     function DispatchComponent() {
@@ -128,7 +184,7 @@ describe('useDispatchOnly', () => {
     )
 
     // Test initial value and render count
-    expect(getNodeText(getByTestId('value'))).toBe('Initial value')
+    expect(getNodeText(getByTestId('state'))).toBe('Initial value')
     expect(getNodeText(getByTestId('counter'))).toBe('1')
 
     act(() => {
@@ -137,8 +193,20 @@ describe('useDispatchOnly', () => {
 
     // The state value in the state component should change but the render
     // counter in the dispatch only component should not change
-    expect(getNodeText(getByTestId('value'))).toBe('New value')
+    expect(getNodeText(getByTestId('state'))).toBe('New value')
     expect(getNodeText(getByTestId('counter'))).toBe('1')
+  })
+
+  it('throws an error when used outside of the Provider', () => {
+    console.error = jest.fn()
+    const { useHook } = createTestStore()
+
+    function Component() {
+      useHook.useDispatchOnly()
+      return <span />
+    }
+
+    expect(() => render(<Component />)).toThrow(PROVIDER_ERROR)
   })
 })
 
