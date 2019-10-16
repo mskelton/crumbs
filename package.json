@@ -8,6 +8,12 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest",
+    "new": "scripts/new.sh",
+    "clean": "scripts/clean.sh"
+  },
   "prettier": "./packages/eslint-config/prettier",
   "devDependencies": {
     "@babel/cli": "^7.6.4",
@@ -21,6 +27,7 @@
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.1.2",
     "jest": "^24.9.0",
+    "lerna": "^3.16.5",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "typescript": "^3.6.4"
