@@ -1,4 +1,4 @@
-# @sage/create-store
+# @crumb/create-store
 
 >
 
@@ -8,10 +8,10 @@
 
 ```sh
 # Yarn
-yarn add @sage/create-store
+yarn add @crumb/create-store
 
 # npm
-npm install @sage/create-store
+npm install @crumb/create-store
 ```
 
 ## Usage

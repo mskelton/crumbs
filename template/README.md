@@ -1,4 +1,4 @@
-# @sage/{{template}}
+# @crumb/{{template}}
 
 >
 
@@ -8,10 +8,10 @@
 
 ```sh
 # Yarn
-yarn add @sage/{{template}}
+yarn add @crumb/{{template}}
 
 # npm
-npm install @sage/{{template}}
+npm install @crumb/{{template}}
 ```
 
 ## Usage

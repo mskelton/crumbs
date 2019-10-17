@@ -1,4 +1,4 @@
-# @sage/use-debounce
+# @crumb/use-debounce
 
 > React hook to debounce state updates.
 
@@ -12,10 +12,10 @@ Other similar packages exist for debouncing values, such as [Nik Mostovoy's use-
 
 ```sh
 # Yarn
-yarn add @sage/use-debounce
+yarn add @crumb/use-debounce
 
 # npm
-npm install @sage/use-debounce
+npm install @crumb/use-debounce
 ```
 
 ## Usage

@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "sage",
+  "name": "crumb",
   "description": "Shared components and utility library.",
-  "repository": "git@github.com:markypython/sage.git",
+  "repository": "git@github.com:markypython/crumb.git",
   "author": "Mark Skelton <mdskelton99@gmail.com>",
   "license": "MIT",
   "workspaces": [

@@ -1,8 +1,8 @@
 {
-  "name": "@sage/create-store",
+  "name": "@crumb/create-store",
   "version": "0.0.1",
   "description": "",
-  "repository": "git@github.com:markypython/sage.git",
+  "repository": "git@github.com:markypython/crumb.git",
   "author": "Mark Skelton <mdskelton99@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
