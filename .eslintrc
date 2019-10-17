@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@sage/eslint-config"
+    "@crumb/eslint-config"
   ],
   "overrides": [
     {
