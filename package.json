@@ -9,6 +9,7 @@
     "packages/*"
   ],
   "scripts": {
+    "build": "lerna exec --parallel -- babel src --out-dir lib --source-maps --extensions .ts,.tsx --root-mode upward",
     "lint": "eslint .",
     "test": "jest",
     "new": "scripts/new.sh",
