@@ -1,6 +1,6 @@
 {
   "extends": [
-    "./packages/eslint-config"
+    "@sage/eslint-config"
   ],
   "overrides": [
     {

@@ -10,12 +10,13 @@
   ],
   "scripts": {
     "build": "lerna exec --parallel -- babel src --out-dir lib --source-maps --extensions .ts,.tsx --root-mode upward",
+    "types": "lerna exec --parallel -- tsc",
     "lint": "eslint .",
     "test": "jest",
     "new": "scripts/new.sh",
     "clean": "scripts/clean.sh"
   },
-  "prettier": "./packages/eslint-config/prettier",
+  "prettier": "@sage/eslint-config/prettier",
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
