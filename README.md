@@ -1,6 +1,7 @@
 # Crumbs
 
 [![Build Status][build-badge]][repo]
+[![Codecov Status][codecov-badge]][codecov]
 
 > Micro component and utility library.
 
@@ -82,3 +83,5 @@ yarn new <crumb>
 
 [build-badge]: https://github.com/markypython/crumbs/workflows/Build/badge.svg
 [repo]: https://github.com/markypython/crumbs/actions
+[codecov-badge]: https://codecov.io/gh/markypython/crumbs/branch/master/graph/badge.svg
+[codecov]: https://codecov.io/gh/markypython/crumbs
