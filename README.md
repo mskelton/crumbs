@@ -38,6 +38,9 @@ Tests should be placed in a directory named `test` in the root of the crumb they
 # Run tests for all crumbs.
 yarn test
 
+# Run tests with coverage.
+yarn test --coverage
+
 # Run tests for a single crumb.
 cd packages/<crumb>
 yarn test
