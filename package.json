@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "crumb",
-  "description": "Shared components and utility library.",
+  "description": "Micro component and utility library.",
   "repository": "git@github.com:markypython/crumb.git",
   "author": "Mark Skelton <mdskelton99@gmail.com>",
   "license": "MIT",
