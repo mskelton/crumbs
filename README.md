@@ -2,11 +2,11 @@
 
 [![Build Status][build-badge]][repo]
 
-> Shared component and utility library.
+> Micro component and utility library.
 
 ## Purpose
 
-The purpose of this repository is to provide a set of small, reusable, "crumbs" to simplify development of React applications. Each package, or "crumb", is individual published to allow applications to pick and choose crumbs as needed.
+The purpose of this repository is to provide a set of small, reusable, "crumbs" to simplify development of React applications. Each package, or "crumb", is individually published to allow applications to pick and choose crumbs as needed. Each crumb is designed to be as small as possible and fulfill a single purpose.
 
 ## Setup
 
@@ -80,5 +80,5 @@ The following script will create a new crumb in the `packages` directory using t
 yarn new <crumb>
 ```
 
-[build-badge]: https://github.com/markypython/crumb/workflows/Build/badge.svg
-[repo]: https://github.com/markypython/crumb/actions
+[build-badge]: https://github.com/markypython/crumbs/sworkflows/Build/badge.svg
+[repo]: https://github.com/markypython/crumbs/actions

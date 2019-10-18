@@ -20,6 +20,8 @@ npm install @crumb/use-debounce
 
 ## Usage
 
+The following is a simple usage showing how the debounced value will be different from the actual value. In an actual application, you will likely use the debounced value in a `useMemo` hook or as a prop to a memoized component.
+
 ```js
 import React, { useState } from 'react'
 import { useDebounce } from 'use-debounce'
