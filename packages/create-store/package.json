@@ -1,6 +1,6 @@
 {
   "name": "@crumb/create-store",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React context/reducer based state container.",
   "repository": "git@github.com:markypython/crumb.git",
   "author": "Mark Skelton <mdskelton99@gmail.com>",
