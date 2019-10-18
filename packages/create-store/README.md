@@ -46,7 +46,7 @@ function reducer(state: State, action: Action) {
 const {
   Provider: CountProvider,
   useHook: useCount
-} = createStore<State, Action>('', 'CountStoreProvider', reducer)
+} = createStore<State, Action>(0, 'CountStoreProvider', reducer)
 ```
 
 Then, call the custom hook inside the component that consumes from the store. The custom hook will return an array of two values: the current state in the store and the dispatch function used to dispatch reducer actions.
