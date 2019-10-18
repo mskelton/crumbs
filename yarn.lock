@@ -763,10 +763,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@crumb/eslint-config@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@crumb/eslint-config/-/eslint-config-1.0.0.tgz#bcd16b531a26f580dd6b27e6b7e1e101236e446c"
-  integrity sha512-NDc4Lp9hHrYW9y+8LB56aWaRH4F5mQSCpjG96iYH8pWasY19XzJZ5y21T7R6+XUbQ3/vpecHHYIZrNGJqSu2qw==
+"@crumb/eslint-config@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@crumb/eslint-config/-/eslint-config-2.0.1.tgz#6e832ac7575c7fca37356c17bd7a22bd6371eaa2"
+  integrity sha512-eiC0Mg6CaoGH+XEuMQiDe0RkymkTlv9Lt++Fc1Xbq8nFwscYsyW5pFkRhcmo5Ct/4XQf4imCgKdZmFTOxl6xHg==
 
 "@evocateur/libnpmaccess@^3.1.2":
   version "3.1.2"
