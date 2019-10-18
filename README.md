@@ -80,5 +80,5 @@ The following script will create a new crumb in the `packages` directory using t
 yarn new <crumb>
 ```
 
-[build-badge]: https://github.com/markypython/crumbs/sworkflows/Build/badge.svg
+[build-badge]: https://github.com/markypython/crumbs/workflows/Build/badge.svg
 [repo]: https://github.com/markypython/crumbs/actions
