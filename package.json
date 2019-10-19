@@ -13,6 +13,7 @@
     "types": "lerna exec --parallel -- tsc",
     "lint": "eslint .",
     "test": "jest",
+    "create-version": "lerna version --conventional-commits",
     "new": "scripts/new.sh",
     "clean": "scripts/clean.sh"
   },
