@@ -4,7 +4,9 @@
 
 ## Description
 
-This package is used
+This package is used to create a context/reducer based state container that can be used for managing React state. It uses React Context to allow components to consume state changes regardless of their position in the render tree.
+
+While you can create stores that contain any type of state, it is recommended to create small, logically separated stores to allow components to consume only the state they need to thus reducing useless re-rendering.
 
 ## Installation
 
