@@ -2,7 +2,7 @@
   "name": "@crumb/{{template}}",
   "version": "0.0.1",
   "description": "",
-  "repository": "git@github.com:markypython/crumb.git",
+  "repository": "git@github.com:mskelton/crumb.git",
   "author": "Mark Skelton <mdskelton99@gmail.com>",
   "license": "MIT",
   "publishConfig": {
