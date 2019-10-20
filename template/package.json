@@ -4,14 +4,21 @@
   "description": "",
   "repository": "git@github.com:mskelton/crumbs.git",
   "author": "Mark Skelton <mdskelton99@gmail.com>",
+  "homepage": "https://github.com/mskelton/crumbs/tree/master/packages/{{template}}#readme",
+  "bugs": {
+    "url": "https://github.com/mskelton/crumbs/issues"
+  },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "react"
+  ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "peerDependencies": {
-    "react": "^16.10.2"
+    "react": ">= 16.8"
   },
   "devDependencies": {
     "@types/react": "^16.9.5"
