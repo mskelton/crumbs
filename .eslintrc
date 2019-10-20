@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@crumb/eslint-config"
+    "@mskelton/eslint-config"
   ],
   "overrides": [
     {

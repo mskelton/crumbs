@@ -763,11 +763,6 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@crumb/eslint-config@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@crumb/eslint-config/-/eslint-config-2.0.1.tgz#6e832ac7575c7fca37356c17bd7a22bd6371eaa2"
-  integrity sha512-eiC0Mg6CaoGH+XEuMQiDe0RkymkTlv9Lt++Fc1Xbq8nFwscYsyW5pFkRhcmo5Ct/4XQf4imCgKdZmFTOxl6xHg==
-
 "@evocateur/libnpmaccess@^3.1.2":
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/@evocateur/libnpmaccess/-/libnpmaccess-3.1.2.tgz#ecf7f6ce6b004e9f942b098d92200be4a4b1c845"
@@ -1660,6 +1655,16 @@
   dependencies:
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
+
+"@mskelton/eslint-config@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@mskelton/eslint-config/-/eslint-config-3.0.3.tgz#a4398f58c6eb1a8325aef74b9772a28998f3d22d"
+  integrity sha512-1+u5cEXOuDgeMOdOXS4dSA4bJvr9Udgmd2Gvi0sL3v7sXHKKHrUr8/5xB6igu6KV4L09a+zjtTcgIm15lcbwzA==
+
+"@mskelton/prettier-config@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@mskelton/prettier-config/-/prettier-config-1.0.2.tgz#d88876486e7b056189fe62289b16494c3c59e544"
+  integrity sha512-YEKnrIH7r4vI0XeRZejCxd5L/OkPt7p3PG0APmN7JwrBaH18/OfYiEztfONPbcTiMblgLKX1OocW4+fvC6m09A==
 
 "@nodelib/fs.stat@^1.1.2":
   version "1.1.3"

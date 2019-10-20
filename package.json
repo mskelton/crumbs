@@ -17,14 +17,15 @@
     "new": "scripts/new.sh",
     "clean": "scripts/clean.sh"
   },
-  "prettier": "@crumb/eslint-config/prettier",
+  "prettier": "@mskelton/prettier-config",
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "@babel/preset-typescript": "^7.6.0",
-    "@crumb/eslint-config": "^2.0.1",
+    "@mskelton/eslint-config": "^3.0.3",
+    "@mskelton/prettier-config": "^1.0.2",
     "@testing-library/react": "^9.3.0",
     "@types/jest": "^24.0.18",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
