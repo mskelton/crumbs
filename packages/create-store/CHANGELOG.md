@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/mskelton/crumbs/compare/@crumb/create-store@1.1.0...@crumb/create-store@1.1.1) (2019-10-20)
+
+**Note:** Version bump only for package @crumb/create-store
+
+
+
+
+
 # [1.1.0](https://github.com/mskelton/crumbs/compare/@crumb/create-store@1.0.2...@crumb/create-store@1.1.0) (2019-10-20)
 
 ### Features
