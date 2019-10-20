@@ -1,6 +1,6 @@
 {
   "name": "@crumb/use-debounce",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React hook to debounce state updates.",
   "repository": "git@github.com:mskelton/crumbs.git",
   "homepage": "https://github.com/mskelton/crumbs/tree/master/packages/use-debounce#readme",
