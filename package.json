@@ -2,7 +2,7 @@
   "private": true,
   "name": "crumb",
   "description": "Micro component and utility library.",
-  "repository": "git@github.com:mskelton/crumb.git",
+  "repository": "git@github.com:mskelton/crumbs.git",
   "author": "Mark Skelton <mdskelton99@gmail.com>",
   "license": "MIT",
   "workspaces": [

@@ -2,7 +2,11 @@
   "name": "@crumb/create-store",
   "version": "1.0.2",
   "description": "React context/reducer based state container.",
-  "repository": "git@github.com:mskelton/crumb.git",
+  "repository": "git@github.com:mskelton/crumbs.git",
+  "homepage": "https://github.com/mskelton/crumbs/tree/master/packages/create-store#readme",
+  "bugs": {
+    "url": "https://github.com/mskelton/crumbs/issues"
+  },
   "author": "Mark Skelton <mdskelton99@gmail.com>",
   "license": "MIT",
   "publishConfig": {
