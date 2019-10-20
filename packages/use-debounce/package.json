@@ -1,17 +1,22 @@
 {
   "name": "@crumb/use-debounce",
   "version": "1.0.1",
-  "description": "React hook to debounce updating a value in state.",
+  "description": "React hook to debounce state updates.",
   "repository": "git@github.com:mskelton/crumb.git",
   "author": "Mark Skelton <mdskelton99@gmail.com>",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "react",
+    "react-hook",
+    "debounce"
+  ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "peerDependencies": {
-    "react": "^16.10.2"
+    "react": ">= 16.8"
   },
   "devDependencies": {
     "@types/react": "^16.9.5"

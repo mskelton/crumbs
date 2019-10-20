@@ -24,7 +24,7 @@ The following is a simple usage showing how the debounced value will be differen
 
 ```js
 import React, { useState } from 'react'
-import { useDebounce } from 'use-debounce'
+import { useDebounce } from '@crumb/use-debounce'
 
 function Input() {
   const [text, setText] = useState('Hello')
@@ -33,7 +33,7 @@ function Input() {
   return (
     <div>
       <input
-        defaultValue={'Hello'}
+        defaultValue="Hello"
         onChange={event => setText(event.target.value)}
       />
 
