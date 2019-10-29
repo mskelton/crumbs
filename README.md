@@ -3,7 +3,7 @@
 [![Build Status][build-badge]][repo]
 [![Codecov Status][codecov-badge]][codecov]
 
-> Micro component and utility library.
+> React component and utility library.
 
 ## Purpose
 
