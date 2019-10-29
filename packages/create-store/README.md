@@ -18,7 +18,7 @@ yarn add @crumb/create-store
 npm install @crumb/create-store
 ```
 
-## Usage
+## Basic Usage
 
 The first step to using this crumb is creating your custom reducer and store. The recommended method for using this crumb is to place your types, reducer, and initialized store in a file and export the resulting store provider and custom hook. Components which consume from the store can then easily import the custom hook from the file you create.
 

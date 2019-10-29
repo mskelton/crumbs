@@ -18,7 +18,7 @@ yarn add @crumb/use-debounce
 npm install @crumb/use-debounce
 ```
 
-## Usage
+## Basic Usage
 
 The following is a simple usage showing how the debounced value will be different from the actual value. In an actual application, you will likely use the debounced value in a `useMemo` hook or as a prop to a memoized component.
 

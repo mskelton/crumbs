@@ -42,8 +42,7 @@ yarn test
 yarn test --coverage
 
 # Run tests for a single crumb.
-cd packages/<crumb>
-yarn test
+yarn test packages/<crumb>
 ```
 
 ### Cleaning

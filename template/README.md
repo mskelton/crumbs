@@ -14,4 +14,4 @@ yarn add @crumb/{{template}}
 npm install @crumb/{{template}}
 ```
 
-## Usage
+## Basic Usage
