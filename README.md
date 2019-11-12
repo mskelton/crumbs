@@ -69,10 +69,6 @@ yarn lint
 
 # Lint the entire project and fix any auto-fixable errors.
 yarn lint --fix
-
-# Lint a specific crumb.
-cd packages/<crumb>
-yarn lint
 ```
 
 ### Creating a new crumb
