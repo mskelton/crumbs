@@ -45,48 +45,50 @@ describe('useDebounce', () => {
     expect(getNodeText(getByTestId('value'))).toBe('Hello world')
   })
 
-  it('updates the value when timer is called', () => {
-    const { getByTestId, rerender } = render(<Component text="Hello" />)
+  describe('when the timer finishes', () => {
+    it('updates the value', () => {
+      const { getByTestId, rerender } = render(<Component text="Hello" />)
 
-    // Check initial value
-    expect(getNodeText(getByTestId('value'))).toBe('Hello')
+      // Check initial value
+      expect(getNodeText(getByTestId('value'))).toBe('Hello')
 
-    act(() => {
-      rerender(<Component text="Hello world" />)
+      act(() => {
+        rerender(<Component text="Hello world" />)
+      })
+
+      // Timeout shouldn't have called yet
+      expect(getNodeText(getByTestId('value'))).toBe('Hello')
+
+      act(() => {
+        jest.runAllTimers()
+      })
+
+      // After runAllTimer text should be updated
+      expect(getNodeText(getByTestId('value'))).toBe('Hello world')
     })
 
-    // Timeout shouldn't have called yet
-    expect(getNodeText(getByTestId('value'))).toBe('Hello')
+    it('applies the latest value', () => {
+      const { getByTestId, rerender } = render(<Component text="Hello" />)
 
-    act(() => {
-      jest.runAllTimers()
+      // Check initial value
+      expect(getNodeText(getByTestId('value'))).toBe('Hello')
+
+      act(() => {
+        // This value shouldn't be applied, as we'll set up another one
+        rerender(<Component text="Wrong value" />)
+      })
+
+      // Timeout shouldn't have called yet
+      expect(getNodeText(getByTestId('value'))).toBe('Hello')
+
+      act(() => {
+        // This value should be applied, as it is the last value passed in
+        rerender(<Component text="Hello world" />)
+        jest.runAllTimers()
+      })
+
+      // After runAllTimer text should be updated
+      expect(getNodeText(getByTestId('value'))).toBe('Hello world')
     })
-
-    // After runAllTimer text should be updated
-    expect(getNodeText(getByTestId('value'))).toBe('Hello world')
-  })
-
-  it('should apply the latest value', () => {
-    const { getByTestId, rerender } = render(<Component text="Hello" />)
-
-    // Check initial value
-    expect(getNodeText(getByTestId('value'))).toBe('Hello')
-
-    act(() => {
-      // This value shouldn't be applied, as we'll set up another one
-      rerender(<Component text="Wrong value" />)
-    })
-
-    // Timeout shouldn't have called yet
-    expect(getNodeText(getByTestId('value'))).toBe('Hello')
-
-    act(() => {
-      // This value should be applied, as it is the last value passed in
-      rerender(<Component text="Hello world" />)
-      jest.runAllTimers()
-    })
-
-    // After runAllTimer text should be updated
-    expect(getNodeText(getByTestId('value'))).toBe('Hello world')
   })
 })

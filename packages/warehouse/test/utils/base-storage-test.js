@@ -13,10 +13,6 @@ export function baseStorageTest(type) {
     it('objects', () => expectValue('foo', { baz: 123, foo: 'bar' }, type))
   })
 
-  it("returns null when getting an item that doesn't exist", () => {
-    expect(new Warehouse({ type }).get('not-found')).toBeNull()
-  })
-
   it('updates items', () => {
     const warehouse = new Warehouse({ type })
     const key = 'foo'
@@ -44,10 +40,18 @@ export function baseStorageTest(type) {
     expect(warehouse.get(key)).toBeNull()
   })
 
-  it("fails silently when removing an item that doesn't exist", () => {
-    const warehouse = new Warehouse({ type })
+  describe("when getting an item that doesn't exist", () => {
+    it('returns null', () => {
+      expect(new Warehouse({ type }).get('not-found')).toBeNull()
+    })
+  })
 
-    expect(warehouse.get('not-found')).toBeNull()
-    expect(() => warehouse.remove('not-found')).not.toThrow()
+  describe("when removing an item that doesn't exist", () => {
+    it('fails silently', () => {
+      const warehouse = new Warehouse({ type })
+
+      expect(warehouse.get('not-found')).toBeNull()
+      expect(() => warehouse.remove('not-found')).not.toThrow()
+    })
   })
 }

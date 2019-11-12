@@ -5,19 +5,26 @@ beforeEach(() => {
 })
 
 describe('creating a warehouse', () => {
-  it("doesn't add a prefix to keys when no prefix is provided", () => {
-    const warehouse = new Warehouse({ type: 'sessionStorage' })
-    warehouse.put('foo', 'bar')
+  describe('when no prefix is specified', () => {
+    it('does not add a prefix to keys', () => {
+      const warehouse = new Warehouse({ type: 'sessionStorage' })
+      warehouse.put('foo', 'bar')
 
-    expect(warehouse.get('foo')).toBe('bar')
-    expect(sessionStorage.getItem).toHaveBeenLastCalledWith('foo')
+      expect(warehouse.get('foo')).toBe('bar')
+      expect(sessionStorage.getItem).toHaveBeenLastCalledWith('foo')
+    })
   })
 
-  it('adds a prefix to keys when specified in the constructor', () => {
-    const warehouse = new Warehouse({ prefix: 'test-', type: 'sessionStorage' })
-    warehouse.put('foo', 'bar')
+  describe('when a prefix is specified', () => {
+    it('adds a prefix to keys', () => {
+      const warehouse = new Warehouse({
+        prefix: 'test-',
+        type: 'sessionStorage',
+      })
+      warehouse.put('foo', 'bar')
 
-    expect(warehouse.get('foo')).toBe('bar')
-    expect(sessionStorage.getItem).toHaveBeenLastCalledWith('test-foo')
+      expect(warehouse.get('foo')).toBe('bar')
+      expect(sessionStorage.getItem).toHaveBeenLastCalledWith('test-foo')
+    })
   })
 })

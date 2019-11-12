@@ -107,106 +107,114 @@ describe('createStore', () => {
 })
 
 describe('useHook', () => {
-  it('re-renders the component when state changes', () => {
-    const { Provider, useHook } = createTestStore()
+  describe('when state change', () => {
+    it('re-renders the component', () => {
+      const { Provider, useHook } = createTestStore()
 
-    function Component() {
-      const [state, dispatch] = useHook()
+      function Component() {
+        const [state, dispatch] = useHook()
 
-      useEffect(() => {
-        const id = setTimeout(() => dispatch({ value: 'New value' }), 1000)
-        return () => clearTimeout(id)
-      }, [dispatch])
+        useEffect(() => {
+          const id = setTimeout(() => dispatch({ value: 'New value' }), 1000)
+          return () => clearTimeout(id)
+        }, [dispatch])
 
-      return <span data-testid="state">{state}</span>
-    }
+        return <span data-testid="state">{state}</span>
+      }
 
-    const { getByTestId } = render(
-      <Provider>
-        <Component />
-      </Provider>
-    )
+      const { getByTestId } = render(
+        <Provider>
+          <Component />
+        </Provider>
+      )
 
-    // Test initial value
-    expect(getNodeText(getByTestId('state'))).toBe('Initial value')
+      // Test initial value
+      expect(getNodeText(getByTestId('state'))).toBe('Initial value')
 
-    act(() => {
-      jest.runAllTimers()
+      act(() => {
+        jest.runAllTimers()
+      })
+
+      // The state value changes to the new value
+      expect(getNodeText(getByTestId('state'))).toBe('New value')
     })
-
-    // The state value changes to the new value
-    expect(getNodeText(getByTestId('state'))).toBe('New value')
   })
 
-  it('throws an error when used outside of the Provider', () => {
-    console.error = jest.fn()
-    const { useHook } = createTestStore()
+  describe('when used outside of the Provider', () => {
+    it('throws an error', () => {
+      console.error = jest.fn()
+      const { useHook } = createTestStore()
 
-    function Component() {
-      useHook()
-      return <span />
-    }
+      function Component() {
+        useHook()
+        return <span />
+      }
 
-    expect(() => render(<Component />)).toThrow(PROVIDER_ERROR)
+      expect(() => render(<Component />)).toThrow(PROVIDER_ERROR)
+    })
   })
 })
 
 describe('useDispatchOnly', () => {
-  it("doesn't re-render when state changes", () => {
-    const { Provider, useHook } = createTestStore()
+  describe('when state changes', () => {
+    it('does not re-render', () => {
+      const { Provider, useHook } = createTestStore()
 
-    function StateComponent() {
-      const [state] = useHook()
-      return <span data-testid="state">{state}</span>
-    }
+      function StateComponent() {
+        const [state] = useHook()
+        return <span data-testid="state">{state}</span>
+      }
 
-    function DispatchComponent() {
-      const dispatch = useHook.useDispatchOnly()
-      const renderCounter = useRef(0)
+      function DispatchComponent() {
+        const dispatch = useHook.useDispatchOnly()
+        const renderCounter = useRef(0)
 
-      // Increment the counter ref to keep track of how many times the
-      // component has rendered
-      renderCounter.current++
+        // Increment the counter ref to keep track of how many times the
+        // component has rendered
+        renderCounter.current++
 
-      useEffect(() => {
-        const id = setTimeout(() => dispatch({ value: 'New value' }), 1000)
-        return () => clearTimeout(id)
-      }, [dispatch])
+        useEffect(() => {
+          const id = setTimeout(() => dispatch({ value: 'New value' }), 1000)
+          return () => clearTimeout(id)
+        }, [dispatch])
 
-      return <p data-testid="counter">{renderCounter.current}</p>
-    }
+        return <p data-testid="counter">{renderCounter.current}</p>
+      }
 
-    const { getByTestId } = render(
-      <Provider>
-        <StateComponent />
-        <DispatchComponent />
-      </Provider>
-    )
+      const { getByTestId } = render(
+        <Provider>
+          <StateComponent />
+          <DispatchComponent />
+        </Provider>
+      )
 
-    // Test initial value and render count
-    expect(getNodeText(getByTestId('state'))).toBe('Initial value')
-    expect(getNodeText(getByTestId('counter'))).toBe('1')
+      // Test initial value and render count
+      expect(getNodeText(getByTestId('state'))).toBe('Initial value')
+      expect(getNodeText(getByTestId('counter'))).toBe('1')
 
-    act(() => {
-      jest.runAllTimers()
+      act(() => {
+        jest.runAllTimers()
+      })
+
+      // The state value in the state component should change but the render
+      // counter in the dispatch only component should not change
+      expect(getNodeText(getByTestId('state'))).toBe('New value')
+      expect(getNodeText(getByTestId('counter'))).toBe('1')
     })
-
-    // The state value in the state component should change but the render
-    // counter in the dispatch only component should not change
-    expect(getNodeText(getByTestId('state'))).toBe('New value')
-    expect(getNodeText(getByTestId('counter'))).toBe('1')
   })
 
-  it('throws an error when used outside of the Provider', () => {
-    console.error = jest.fn()
-    const { useHook } = createTestStore()
+  describe('when used outside of the Provider', () => {
+    it('throws an error ', () => {
+      console.error = jest.fn()
+      const { useHook } = createTestStore()
 
-    function Component() {
-      useHook.useDispatchOnly()
-      return <span />
-    }
+      function Component() {
+        useHook.useDispatchOnly()
+        return <span />
+      }
 
-    expect(() => render(<Component />)).toThrow(PROVIDER_ERROR)
+      expect(() => render(<Component />)).toThrow(PROVIDER_ERROR)
+    })
   })
 })
 
