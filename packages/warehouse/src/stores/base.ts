@@ -1,4 +1,4 @@
-import { WarehouseOptions } from '../models/options'
+import { WarehouseOptions } from '../models'
 
 export class BaseWarehouse {
   private options: WarehouseOptions

@@ -3,7 +3,7 @@ import {
   CookieWarehouse,
   LocalStorageWarehouse,
   SessionStorageWarehouse,
-} from './warehouses'
+} from './stores'
 
 export function createWarehouse(
   type: 'cookie',
