@@ -1,29 +1,37 @@
-import { getConnector } from './connectors'
-import { Connector } from './models/connector'
-import { PutOptions, WarehouseOptions } from './models/options'
+import { WarehouseOptions, WarehouseType } from './models'
+import {
+  CookieWarehouse,
+  LocalStorageWarehouse,
+  SessionStorageWarehouse,
+} from './warehouses'
 
-export class Warehouse {
-  private options: WarehouseOptions
-  private connector: Connector
+export function createWarehouse(
+  type: 'cookie',
+  options?: WarehouseOptions
+): CookieWarehouse
 
-  constructor(options: WarehouseOptions) {
-    this.options = options
-    this.connector = getConnector(options.type)
-  }
+export function createWarehouse(
+  type: 'localStorage',
+  options?: WarehouseOptions
+): LocalStorageWarehouse
 
-  get<T>(key: string): T | null {
-    return this.connector.get<T>(this.getKey(key))
-  }
+export function createWarehouse(
+  type: 'sessionStorage',
+  options?: WarehouseOptions
+): SessionStorageWarehouse
 
-  put(key: string, value: unknown, options: PutOptions = {}): void {
-    return this.connector.put(this.getKey(key), value, options)
-  }
+export function createWarehouse(
+  type: WarehouseType,
+  options?: WarehouseOptions
+) {
+  switch (type) {
+    case 'cookie':
+      return new CookieWarehouse(options)
 
-  remove(key: string): void {
-    this.connector.remove(this.getKey(key))
-  }
+    case 'localStorage':
+      return new LocalStorageWarehouse(options)
 
-  private getKey(key: string) {
-    return (this.options.prefix || '') + key
+    case 'sessionStorage':
+      return new SessionStorageWarehouse(options)
   }
 }

@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import { Warehouse } from '../src'
+import { createWarehouse } from '../src'
 import { baseStorageTest } from './utils/base-storage-test'
 
 beforeEach(() => {
@@ -14,7 +14,7 @@ describe('cookies', () => {
     jest.spyOn(Cookies, 'set')
     jest.spyOn(Cookies, 'remove')
 
-    const warehouse = new Warehouse({ type: 'cookie' })
+    const warehouse = createWarehouse('cookie')
     warehouse.put('foo', 'bar')
     warehouse.get('foo')
     warehouse.remove('foo')
@@ -27,7 +27,7 @@ describe('cookies', () => {
   it('sets expiration on cookies', () => {
     jest.spyOn(Cookies, 'set')
 
-    const warehouse = new Warehouse({ type: 'cookie' })
+    const warehouse = createWarehouse('cookie')
     warehouse.put('foo', 'bar', { expireDays: 1 })
 
     expect(Cookies.set).toHaveBeenCalledWith('foo', '"bar"', { expires: 1 })

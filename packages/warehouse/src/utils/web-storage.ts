@@ -3,10 +3,10 @@ export const webStorage = {
     const value = storage.getItem(key)
     return value ? JSON.parse(value) : null
   },
-  put: (storage: Storage, key: string, value: unknown): void => {
+  put: (storage: Storage, key: string, value: unknown) => {
     storage.setItem(key, JSON.stringify(value))
   },
-  remove: <T>(storage: Storage, key: string): void => {
+  remove: (storage: Storage, key: string) => {
     storage.removeItem(key)
   },
 }

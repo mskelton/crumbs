@@ -1,4 +1,4 @@
-import { Warehouse } from '../src'
+import { createWarehouse } from '../src'
 import { baseStorageTest } from './utils/base-storage-test'
 
 beforeEach(() => {
@@ -9,7 +9,7 @@ describe('session storage', () => {
   baseStorageTest('sessionStorage')
 
   it('calls the sessionStorage API', () => {
-    const warehouse = new Warehouse({ type: 'sessionStorage' })
+    const warehouse = createWarehouse('sessionStorage')
     warehouse.put('foo', 'bar')
     warehouse.get('foo')
     warehouse.remove('foo')

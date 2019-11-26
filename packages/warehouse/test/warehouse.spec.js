@@ -1,4 +1,4 @@
-import { Warehouse } from '../src'
+import { createWarehouse } from '../src'
 
 beforeEach(() => {
   jest.clearAllMocks()
@@ -7,7 +7,7 @@ beforeEach(() => {
 describe('creating a warehouse', () => {
   describe('when no prefix is specified', () => {
     it('does not add a prefix to keys', () => {
-      const warehouse = new Warehouse({ type: 'sessionStorage' })
+      const warehouse = createWarehouse('sessionStorage')
       warehouse.put('foo', 'bar')
 
       expect(warehouse.get('foo')).toBe('bar')
@@ -17,9 +17,8 @@ describe('creating a warehouse', () => {
 
   describe('when a prefix is specified', () => {
     it('adds a prefix to keys', () => {
-      const warehouse = new Warehouse({
+      const warehouse = createWarehouse('sessionStorage', {
         prefix: 'test-',
-        type: 'sessionStorage',
       })
       warehouse.put('foo', 'bar')
 

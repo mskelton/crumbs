@@ -1,4 +1,4 @@
-import { Warehouse } from '../../src'
+import { createWarehouse } from '../../src'
 import { expectValue } from './expect-value'
 
 export function baseStorageTest(type) {
@@ -14,7 +14,7 @@ export function baseStorageTest(type) {
   })
 
   it('updates items', () => {
-    const warehouse = new Warehouse({ type })
+    const warehouse = createWarehouse(type)
     const key = 'foo'
 
     // Put the item in the warehouse and verify it exists
@@ -27,7 +27,7 @@ export function baseStorageTest(type) {
   })
 
   it('removes items', () => {
-    const warehouse = new Warehouse({ type })
+    const warehouse = createWarehouse(type)
     const key = 'foo'
     const value = 'bar'
 
@@ -42,13 +42,13 @@ export function baseStorageTest(type) {
 
   describe("when getting an item that doesn't exist", () => {
     it('returns null', () => {
-      expect(new Warehouse({ type }).get('not-found')).toBeNull()
+      expect(createWarehouse(type).get('not-found')).toBeNull()
     })
   })
 
   describe("when removing an item that doesn't exist", () => {
     it('fails silently', () => {
-      const warehouse = new Warehouse({ type })
+      const warehouse = createWarehouse(type)
 
       expect(warehouse.get('not-found')).toBeNull()
       expect(() => warehouse.remove('not-found')).not.toThrow()

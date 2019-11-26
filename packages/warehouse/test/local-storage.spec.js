@@ -1,5 +1,5 @@
+import { createWarehouse } from '../src'
 import { baseStorageTest } from './utils/base-storage-test'
-import { Warehouse } from '../src'
 
 beforeEach(() => {
   jest.clearAllMocks()
@@ -9,7 +9,7 @@ describe('local storage', () => {
   baseStorageTest('localStorage')
 
   it('calls the localStorage API', () => {
-    const warehouse = new Warehouse({ type: 'localStorage' })
+    const warehouse = createWarehouse('localStorage')
     warehouse.put('foo', 'bar')
     warehouse.get('foo')
     warehouse.remove('foo')

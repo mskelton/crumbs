@@ -21,9 +21,9 @@ npm install @crumb/warehouse
 To start, create a new `Warehouse` instance using the storage type you wish to use (i.e. sessionStorage, cookie).
 
 ```js
-import { Warehouse } from '@crumb/warehouse'
+import { createWarehouse } from '@crumb/warehouse'
 
-const warehouse = new Warehouse({ type: 'sessionStorage' })
+const warehouse = createWarehouse('sessionStorage')
 ```
 
 After the warehouse is created, you can store, retrieve, and delete items from the warehouse.
@@ -67,8 +67,7 @@ warehouse.put('foo', 'bar', { expireDays: 7 })
 One useful feature of Warehouse is the ability to define a key prefix to be added to all items that are stored. This is especially helpful for organizing items if you have multiple applications storing items on the same domain.
 
 ```js
-const warehouse = new Warehouse({
-  type: 'sessionStorage',
+const warehouse = createWarehouse('sessionStorage', {
   prefix: 'my-app-name-',
 })
 ```
@@ -81,8 +80,8 @@ The approach we recommend is to create a file to house all your instantiated war
 
 ```js
 // warehouses.js
-export const localStorageWarehouse = new Warehouse({ type: 'localStorage' })
-export const cookieWarehouse = new Warehouse({ type: 'cookie' })
+export const localStorageWarehouse = createWarehouse('localStorage')
+export const cookieWarehouse = createWarehouse('cookie')
 ```
 
 ```js
