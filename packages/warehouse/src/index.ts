@@ -34,4 +34,6 @@ export function createWarehouse(
     case 'sessionStorage':
       return new SessionStorageWarehouse(options)
   }
+
+  throw new Error('Invalid warehouse type.')
 }

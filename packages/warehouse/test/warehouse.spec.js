@@ -26,4 +26,12 @@ describe('creating a warehouse', () => {
       expect(sessionStorage.getItem).toHaveBeenLastCalledWith('test-foo')
     })
   })
+
+  describe('when an invalid type is passed', () => {
+    it('should throw an invalid type error', () => {
+      expect(() => createWarehouse('invalid')).toThrowError(
+        'Invalid warehouse type.'
+      )
+    })
+  })
 })
