@@ -1,11 +1,7 @@
 import { WarehouseOptions } from '../models'
 
-export class BaseWarehouse {
-  private options: WarehouseOptions
-
-  constructor(options: WarehouseOptions = {}) {
-    this.options = options
-  }
+export abstract class BaseWarehouse {
+  constructor(private options: WarehouseOptions = {}) {}
 
   protected getKey(key: string) {
     return (this.options.prefix || '') + key

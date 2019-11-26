@@ -1,12 +1,8 @@
 {
-  "extends": [
-    "@mskelton/eslint-config"
-  ],
+  "extends": ["@mskelton/eslint-config", "@mskelton/eslint-config/typescript"],
   "overrides": [
     {
-      "files": [
-        "packages/*/test/**/*"
-      ],
+      "files": ["packages/*/test/**/*"],
       "env": {
         "jest": true
       }

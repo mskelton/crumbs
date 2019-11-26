@@ -1656,15 +1656,25 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@mskelton/eslint-config@^3.0.3":
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@mskelton/eslint-config/-/eslint-config-3.0.3.tgz#a4398f58c6eb1a8325aef74b9772a28998f3d22d"
-  integrity sha512-1+u5cEXOuDgeMOdOXS4dSA4bJvr9Udgmd2Gvi0sL3v7sXHKKHrUr8/5xB6igu6KV4L09a+zjtTcgIm15lcbwzA==
+"@mskelton/eslint-config@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@mskelton/eslint-config/-/eslint-config-5.1.1.tgz#e59bc16b9c102c3fe968e2688ee440c0c08049d3"
+  integrity sha512-GAAfjwHJ6XMWpWRhH3BDiCBzK3xuyqJmDOiI8hiGKzycLi47tAKuyU+qSjkZkMqDvxg7JQGuqyjUrtflidGnHg==
+  dependencies:
+    "@mskelton/prettier-config" "^5.1.1"
+    "@typescript-eslint/parser" "^2.4.0"
+    eslint-config-prettier "^6.4.0"
+    eslint-config-standard "^14.1.0"
 
 "@mskelton/prettier-config@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@mskelton/prettier-config/-/prettier-config-1.0.2.tgz#d88876486e7b056189fe62289b16494c3c59e544"
   integrity sha512-YEKnrIH7r4vI0XeRZejCxd5L/OkPt7p3PG0APmN7JwrBaH18/OfYiEztfONPbcTiMblgLKX1OocW4+fvC6m09A==
+
+"@mskelton/prettier-config@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@mskelton/prettier-config/-/prettier-config-5.1.1.tgz#5d60e2748fca011e2d6c9cc9f66e0258256d8e83"
+  integrity sha512-wyYzFlz8jxC5c/prV0oT+tA99waRXRLRLxzMeaPMkhGi7/tgorFJTEHVJXIh1+KguMN2f2la/1XFss2OntvXAg==
 
 "@nodelib/fs.stat@^1.1.2":
   version "1.1.3"
