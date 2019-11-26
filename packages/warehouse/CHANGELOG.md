@@ -1,3 +1,7 @@
+## 2.0.1
+
+- Throw error if invalid warehouse type is provided.
+
 ## 2.0.0
 
 - Completely overhaul library to allow stronger typing.
