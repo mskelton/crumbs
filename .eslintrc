@@ -1,5 +1,9 @@
 {
-  "extends": ["@mskelton/eslint-config", "@mskelton/eslint-config/typescript"],
+  "extends": [
+    "@mskelton/eslint-config",
+    "@mskelton/eslint-config/react",
+    "@mskelton/eslint-config/typescript"
+  ],
   "overrides": [
     {
       "files": ["packages/*/test/**/*"],
