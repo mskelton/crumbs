@@ -73,7 +73,7 @@ yarn lint --fix
 
 ### Creating a new crumb
 
-The following script will create a new crumb in the `packages` directory using the code from the `template` directory. The crumb name will be used for the test file as well as the README and the crumb name in `crumb.json`.
+The following script will create a new crumb in the `packages` directory using the code from the `template` directory. The crumb name will be used for the test file as well as the README and the crumb name in `package.json`.
 
 ```sh
 yarn new <crumb>
