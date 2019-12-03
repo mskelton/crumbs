@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.1.6
+
+Export missing interface.
+
 ## 1.1.5
 
 Add missing TS declaration file.
