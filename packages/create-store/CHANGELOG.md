@@ -1,15 +1,8 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+## 1.1.5
 
-## [1.1.4](https://github.com/mskelton/crumbs/compare/@crumb/create-store@1.1.3...@crumb/create-store@1.1.4) (2019-11-13)
-
-**Note:** Version bump only for package @crumb/create-store
-
-
-
-
+Add missing TS declaration file.
 
 ## 1.1.3
 
