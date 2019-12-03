@@ -1,6 +1,6 @@
 {
   "name": "@crumb/warehouse",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Simple and unified API for accessing browser storage. Supports sessionStorage, localStorage, and cookies.",
   "repository": "git@github.com:mskelton/crumbs.git",
   "author": "Mark Skelton <mdskelton99@gmail.com>",
