@@ -2,5 +2,6 @@
   "npmClient": "yarn",
   "packages": ["packages/*"],
   "useWorkspaces": true,
-  "version": "independent"
+  "version": "independent",
+  "ignoreChanges": ["*.md"]
 }

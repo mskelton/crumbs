@@ -51,6 +51,8 @@ const {
   Provider: CountProvider,
   useHook: useCount
 } = createStore<State, Action>(0, 'CountStoreProvider', reducer)
+
+export { CountProvider, useCount }
 ```
 
 You will notice the use of the `InvalidReducerAction` class at the end of the reducer in the previous block. This is a custom error class provided by this package for use inside your reducers to throw an error message when an action type is invalid. While you are not required to use this in your reducers, we recommend using it to provide simple and consistent error messaging for invalid reducer actions.
