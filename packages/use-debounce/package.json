@@ -17,6 +17,10 @@
     "react-hook",
     "debounce"
   ],
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "peerDependencies": {
