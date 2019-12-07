@@ -10,10 +10,11 @@
   ],
   "scripts": {
     "build": "lerna exec --parallel -- babel src --out-dir lib --source-maps --extensions .ts,.tsx --root-mode upward",
-    "types": "lerna exec --parallel -- tsc",
+    "types:generate": "yarn tsc -b",
+    "types:check": "yarn tsc -p tsconfig.check.json",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx .",
     "test": "jest",
-    "create-version": "lerna version",
+    "preversion": "yarn lint && yarn test && yarn types:generate && yarn build",
     "new": "scripts/new.sh",
     "clean": "scripts/clean.sh"
   },

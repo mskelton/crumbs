@@ -1,4 +1,4 @@
-import { act, getNodeText, render, cleanup } from '@testing-library/react'
+import { act, getNodeText, render } from '@testing-library/react'
 import React from 'react'
 import { useFetch } from '../src'
 
