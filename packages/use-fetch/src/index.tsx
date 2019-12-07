@@ -19,11 +19,11 @@ export function useFetch<T>(fn: () => Promise<T>) {
     try {
       const data = await fn()
 
-      if (isMounted) {
+      if (isMounted()) {
         setState({ data, error: null, loading: false })
       }
     } catch (error) {
-      if (isMounted) {
+      if (isMounted()) {
         setState({ data: null, error, loading: false })
       }
     }
