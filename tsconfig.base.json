@@ -1,13 +1,18 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "target": "esnext",
+    // Enables project references
     "composite": true,
+    // Allow JSX
+    "jsx": "react",
+    // Only output declaration files
     "declaration": true,
     "declarationMap": true,
-    "jsx": "react",
-    "moduleResolution": "node",
+    "emitDeclarationOnly": true,
+    // Compiler strictness
     "strict": true,
-    "target": "esnext",
-    "emitDeclarationOnly": true
+    "skipLibCheck": true
   }
 }

@@ -7,7 +7,7 @@ import React, {
   Dispatch,
 } from 'react'
 
-export interface ProviderProps {
+type ProviderProps = {
   children: ReactNode
 }
 
