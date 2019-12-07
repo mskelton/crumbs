@@ -1,4 +1,4 @@
-import { act, getNodeText, render } from '@testing-library/react'
+import { act, getNodeText, render, cleanup } from '@testing-library/react'
 import React from 'react'
 import { useFetch } from '../src'
 
@@ -26,58 +26,74 @@ function Component(props) {
   )
 }
 
-describe('on initial render', () => {
+function generateBeforeFetchTests(props) {
   let queryByTestId
 
-  beforeAll(() => {
-    const result = render(<Component />)
-    queryByTestId = result.queryByTestId
-  })
+  function expectLoading() {
+    it('renders loading state', () => {
+      expect(queryByTestId('loading')).not.toBeNull()
+    })
 
-  it('renders loading state', () => {
-    expect(queryByTestId('loading')).not.toBeNull()
-  })
+    it('does not render data', () => {
+      expect(queryByTestId('data')).toBeNull()
+    })
 
-  it('does not render data', () => {
-    expect(queryByTestId('data')).toBeNull()
-  })
+    it('does not render error', () => {
+      expect(queryByTestId('error')).toBeNull()
+    })
+  }
 
-  it('does not render error', () => {
-    expect(queryByTestId('error')).toBeNull()
-  })
-})
+  describe('on initial render', () => {
+    beforeEach(() => {
+      queryByTestId = render(<Component {...props} />).queryByTestId
+    })
 
-describe('fetch success', () => {
-  const data = 'Fetched data'
+    expectLoading.call(this)
+  })
 
   describe('before fetch finishes', () => {
-    it('renders loading state', () => {
-      const { queryByTestId } = render(<Component data={data} />)
+    beforeEach(() => {
+      queryByTestId = render(<Component {...props} />).queryByTestId
 
       // Run timers to 1ms before the fetch finishes
       act(() => {
         jest.runTimersToTime(TIMEOUT - 1)
       })
-
-      // Still renders loading state
-      expect(queryByTestId('loading')).not.toBeNull()
-      expect(queryByTestId('data')).toBeNull()
-      expect(queryByTestId('error')).toBeNull()
     })
+
+    expectLoading.call(this)
   })
+}
+
+describe('successful fetch', () => {
+  const data = 'Fetched data'
+
+  generateBeforeFetchTests({ data })
 
   describe('after fetch finishes', () => {
-    it('renders data and hides loading/error', async () => {
-      const { getByTestId, queryByTestId } = render(<Component data={data} />)
+    let getByTestId, queryByTestId
+
+    beforeEach(async () => {
+      const result = render(<Component data={data} />)
+
+      getByTestId = result.getByTestId
+      queryByTestId = result.queryByTestId
 
       // Finish the fetch
       await act(async () => {
         jest.runTimersToTime(TIMEOUT)
       })
+    })
 
-      // Renders the error state
-      expect(queryByTestId('loading')).toBeNull()
+    it('renders data', () => {
       expect(getNodeText(getByTestId('data'))).toBe(data)
+    })
+
+    it('does not render loading state', () => {
+      expect(queryByTestId('loading')).toBeNull()
+    })
+
+    it('does not render error', () => {
       expect(queryByTestId('error')).toBeNull()
     })
   })
@@ -86,35 +102,33 @@ describe('fetch success', () => {
 describe('fetch error', () => {
   const error = 'Failed to fetch'
 
-  describe('before fetch finishes', () => {
-    it('renders loading state', () => {
-      const { queryByTestId } = render(<Component error={error} />)
-
-      // Run timers to 1ms before the fetch finishes
-      act(() => {
-        jest.runTimersToTime(TIMEOUT - 1)
-      })
-
-      // Still renders loading state
-      expect(queryByTestId('loading')).not.toBeNull()
-      expect(queryByTestId('data')).toBeNull()
-      expect(queryByTestId('error')).toBeNull()
-    })
-  })
+  generateBeforeFetchTests({ error })
 
   describe('after fetch finishes', () => {
-    it('renders error and hides loading/data', async () => {
-      const { getByTestId, queryByTestId } = render(<Component error={error} />)
+    let getByTestId, queryByTestId
+
+    beforeEach(async () => {
+      const result = render(<Component error={error} />)
+
+      getByTestId = result.getByTestId
+      queryByTestId = result.queryByTestId
 
       // Finish the fetch
       await act(async () => {
         jest.runTimersToTime(TIMEOUT)
       })
+    })
 
-      // Renders the error state
-      expect(queryByTestId('loading')).toBeNull()
-      expect(queryByTestId('data')).toBeNull()
+    it('renders error', () => {
       expect(getNodeText(getByTestId('error'))).toBe(error)
+    })
+
+    it('does not render loading state', () => {
+      expect(queryByTestId('loading')).toBeNull()
+    })
+
+    it('does not render data', () => {
+      expect(queryByTestId('data')).toBeNull()
     })
   })
 })
