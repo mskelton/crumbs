@@ -8,13 +8,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 10
-      - name: Install
-        run: yarn
-      - name: Build
-        run: yarn build
-      - name: Lint
-        run: yarn lint
-      - name: Test
-        run: yarn test --coverage
+      - run: yarn
+      - run: yarn lint
+      - run: yarn test --coverage
       - name: Upload coverage
         run: bash <(curl -s https://codecov.io/bash) -t ${{secrets.codecov_token}}
+      - run: yarn types:check
+      - run: yarn build
