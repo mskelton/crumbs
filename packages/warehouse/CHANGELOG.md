@@ -1,3 +1,9 @@
+# Changelog
+
+## 2.0.2
+
+- Only include lib directory in output
+
 ## 2.0.1
 
 - Throw error if invalid warehouse type is provided.

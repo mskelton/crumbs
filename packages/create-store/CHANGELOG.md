@@ -1,4 +1,8 @@
-# Change Log
+# Changelog
+
+## 1.1.7
+
+- Only include lib directory in output
 
 ## 1.1.6
 
