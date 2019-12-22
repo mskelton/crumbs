@@ -16,7 +16,8 @@
     "test": "jest",
     "preversion": "yarn lint && yarn test && yarn types:generate && yarn build",
     "new": "scripts/new.sh",
-    "clean": "scripts/clean.sh"
+    "clean": "scripts/clean.sh",
+    "release": "yarn lerna publish"
   },
   "prettier": "@mskelton/prettier-config",
   "devDependencies": {
