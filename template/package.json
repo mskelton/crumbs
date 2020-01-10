@@ -15,6 +15,14 @@
   "keywords": [
     "react"
   ],
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "peerDependencies": {
