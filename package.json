@@ -9,12 +9,12 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "lerna exec --parallel -- babel src --out-dir lib --source-maps --extensions .ts,.tsx --root-mode upward",
-    "types:generate": "yarn tsc -b",
-    "types:check": "yarn tsc -p tsconfig.check.json",
+    "build": "babel packages/*/src --out-dir ../lib --relative --source-maps --extensions .ts,.tsx",
+    "ts:generate": "yarn tsc -b",
+    "ts:check": "yarn tsc -p tsconfig.check.json",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx .",
     "test": "jest",
-    "preversion": "yarn lint && yarn test && yarn types:generate && yarn build",
+    "preversion": "yarn lint && yarn test && yarn ts:generate && yarn build",
     "new": "scripts/new.sh",
     "clean": "scripts/clean.sh",
     "release": "yarn lerna publish"
