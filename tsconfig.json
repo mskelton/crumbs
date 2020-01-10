@@ -8,9 +8,6 @@
       "path": "packages/use-debounce"
     },
     {
-      "path": "packages/use-fetch"
-    },
-    {
       "path": "packages/warehouse"
     }
   ]
