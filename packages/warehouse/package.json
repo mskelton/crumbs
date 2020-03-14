@@ -32,6 +32,6 @@
     "js-cookie": "^2.2.1"
   },
   "devDependencies": {
-    "@types/js-cookie": "^2.2.4"
+    "@types/js-cookie": "^2.2.5"
   }
 }
