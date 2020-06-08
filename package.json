@@ -10,11 +10,10 @@
   ],
   "scripts": {
     "build": "babel packages/*/src --out-dir ../lib --relative --source-maps --extensions .ts,.tsx",
-    "ts:generate": "yarn tsc -b",
-    "ts:check": "yarn tsc -p tsconfig.check.json",
+    "ts": "yarn tsc -b",
     "lint": "eslint .",
     "test": "jest",
-    "preversion": "yarn lint && yarn test && yarn ts:generate && yarn build",
+    "preversion": "yarn lint && yarn test && yarn ts && yarn build",
     "new": "scripts/new.sh",
     "clean": "scripts/clean.sh",
     "release": "yarn lerna publish"

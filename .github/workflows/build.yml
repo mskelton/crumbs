@@ -13,5 +13,5 @@ jobs:
       - run: yarn test --coverage
       - name: Upload coverage
         run: bash <(curl -s https://codecov.io/bash) -t ${{secrets.codecov_token}}
-      - run: yarn ts:check
+      - run: yarn ts
       - run: yarn build
