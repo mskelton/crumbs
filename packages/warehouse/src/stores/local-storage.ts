@@ -1,5 +1,5 @@
-import { BaseWarehouse } from './base'
 import { webStorage } from '../utils/web-storage'
+import { BaseWarehouse } from './base'
 
 export class LocalStorageWarehouse extends BaseWarehouse {
   get<T>(key: string) {

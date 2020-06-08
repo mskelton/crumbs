@@ -1,10 +1,10 @@
 import React, {
   createContext,
+  Dispatch,
   ReactNode,
+  Reducer,
   useContext,
   useReducer,
-  Reducer,
-  Dispatch,
 } from 'react'
 
 type ProviderProps = {
